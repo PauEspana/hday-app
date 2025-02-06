@@ -72,6 +72,7 @@ public class Quiz {
             System.err.println("SQL file not found: " + filePath);
         } catch (SQLException e) {
             System.err.println("SQL error: " + e.getMessage());
+            System.out.println("DRIVER ISSUE");
         }
     }
 
