@@ -1,9 +1,9 @@
 -- Us de la base de dades
 USE quiz;
 
-drop table info;
-drop table results;
-drop table questions;
+drop table if exists info;
+drop table if exists results;
+drop table if exists questions;
 
 --
 -- Table structure for table `info`

@@ -6,17 +6,18 @@ import java.util.*;
 
 public class Quiz {
     static final Connection con;
+    static final String databaseString = "jdbc:mysql://172.16.242.59:3306";
 
     static {
         try {
-            Connection tempCon = DriverManager.getConnection("jdbc:mysql://localhost:3306/?user=root&password=winintin123456789");
+            Connection tempCon = DriverManager.getConnection( databaseString + "/?user=root&password=winintin123456789");
 
             Statement stmt = tempCon.createStatement();
             stmt.executeUpdate("CREATE DATABASE IF NOT EXISTS quiz");
             stmt.close();
             tempCon.close();
 
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/quiz", "root", "winintin123456789");
+            con = DriverManager.getConnection(databaseString + "/quiz", "root", "winintin123456789");
 
             Statement tableStmt = con.createStatement();
             tableStmt.executeUpdate("CREATE TABLE IF NOT EXISTS initializeDatabase (" +
@@ -72,7 +73,6 @@ public class Quiz {
             System.err.println("SQL file not found: " + filePath);
         } catch (SQLException e) {
             System.err.println("SQL error: " + e.getMessage());
-            System.out.println("DRIVER ISSUE");
         }
     }
 
