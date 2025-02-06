@@ -5,26 +5,44 @@ import java.io.*;
 import java.util.*;
 
 public class Quiz {
-    static final Connection con;
+    static Connection con = DriverManager.getConnection(databaseString + "/?user=root&password=winintin123456789");
     static final String databaseString = "jdbc:mysql://172.16.242.59:3306";
 
-    static {
-        try {
-            Connection tempCon = DriverManager.getConnection( databaseString + "/?user=root&password=winintin123456789");
+    public static void main(String[] args) throws SQLException {
+        db();
 
-            Statement stmt = tempCon.createStatement();
+        Statement s = con.createStatement();
+        ResultSet rs = s.executeQuery("SELECT * FROM initializeDatabase");
+
+        if (rs.next() && rs.getInt("initialized") == 0) {
+            initializeDatabase();
+        }
+
+        play();
+        s.close();
+    }
+
+    private static void db() {
+        try {
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM initializeDatabase");
+            if (rs.next() && rs.getInt("initialized") == 0) {
+                con = DriverManager.getConnection(databaseString + "/quiz", "root", "winintin123456789");
+                return;
+            }
+
             stmt.executeUpdate("CREATE DATABASE IF NOT EXISTS quiz");
             stmt.close();
-            tempCon.close();
+            con.close();
 
             con = DriverManager.getConnection(databaseString + "/quiz", "root", "winintin123456789");
 
-            Statement tableStmt = con.createStatement();
+            Statement tableStmt = Quiz.con.createStatement();
             tableStmt.executeUpdate("CREATE TABLE IF NOT EXISTS initializeDatabase (" +
                     "id INT PRIMARY KEY AUTO_INCREMENT, " +
                     "initialized INT NOT NULL)");
 
-            ResultSet rs = tableStmt.executeQuery("SELECT COUNT(*) FROM initializeDatabase");
+            rs = tableStmt.executeQuery("SELECT COUNT(*) FROM initializeDatabase");
             rs.next();
             int rowCount = rs.getInt(1);
 
@@ -36,18 +54,6 @@ public class Quiz {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-    }
-
-    public static void main(String[] args) throws SQLException {
-        Statement s = con.createStatement();
-        ResultSet rs = s.executeQuery("SELECT * FROM initializeDatabase");
-
-        if (rs.next() && rs.getInt("initialized") == 0) {
-            initializeDatabase();
-        }
-
-        play();
-        s.close();
     }
 
     public static void initializeDatabase() {
