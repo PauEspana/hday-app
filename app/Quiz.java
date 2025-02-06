@@ -24,12 +24,26 @@ public class Quiz {
 
     private static void db() {
         try {
+            ResultSet rs;
+
+            try {
+                con = DriverManager.getConnection(databaseString + "/quiz", "root", "winintin123456789");
+                Statement s = con.createStatement();
+                rs = s.executeQuery("SELECT * FROM initializeDatabase");
+
+                if (rs.next() && rs.getInt("initialized") == 0) {
+                    return;
+                }
+            } catch (SQLException e) {
+                System.out.println("Database not found, generation it.");
+            }
+
             con = DriverManager.getConnection(databaseString, "root", "winintin123456789");
             Statement stmt = con.createStatement();
-            ResultSet rs;
 
             stmt.executeUpdate("CREATE DATABASE IF NOT EXISTS quiz");
             stmt.executeUpdate("USE quiz");
+
             stmt.close();
 
             Statement tableStmt = Quiz.con.createStatement();
