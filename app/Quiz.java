@@ -10,34 +10,27 @@ public class Quiz {
 
     public static void main(String[] args) throws SQLException {
         db();
-
-        Statement s = con.createStatement();
-        ResultSet rs = s.executeQuery("SELECT * FROM initializeDatabase");
-
-        if (rs.next() && rs.getInt("initialized") == 0) {
-            initializeDatabase();
-        }
-
         play();
-        s.close();
     }
 
     private static void db() {
+
+        ResultSet rs;
+
         try {
-            ResultSet rs;
+            con = DriverManager.getConnection(databaseString + "/quiz", "root", "winintin123456789");
+            Statement s = con.createStatement();
+            rs = s.executeQuery("SELECT * FROM initializeDatabase");
 
-            try {
-                con = DriverManager.getConnection(databaseString + "/quiz", "root", "winintin123456789");
-                Statement s = con.createStatement();
-                rs = s.executeQuery("SELECT * FROM initializeDatabase");
-
-                if (rs.next() && rs.getInt("initialized") == 0) {
-                    return;
-                }
-            } catch (SQLException e) {
-                System.out.println("Database not found, generation it.");
+            if (rs.next() && rs.getInt("initialized") == 0) {
+                initializeDatabase();
+                return;
             }
+        } catch (SQLException e) {
+            System.out.println("Database not found, generation it.");
+        }
 
+        try {
             con = DriverManager.getConnection(databaseString, "root", "winintin123456789");
             Statement stmt = con.createStatement();
 
