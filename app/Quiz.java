@@ -6,7 +6,7 @@ import java.util.*;
 
 public class Quiz {
     static final String databaseString = "jdbc:mysql://172.16.242.59:3306";
-    static Connection con = DriverManager.getConnection(databaseString + "/?user=root&password=winintin123456789");
+    static Connection con;
 
     public static void main(String[] args) throws SQLException {
         db();
@@ -24,18 +24,13 @@ public class Quiz {
 
     private static void db() {
         try {
+            con = DriverManager.getConnection(databaseString, "root", "winintin123456789");
             Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM initializeDatabase");
-            if (rs.next() && rs.getInt("initialized") == 0) {
-                con = DriverManager.getConnection(databaseString + "/quiz", "root", "winintin123456789");
-                return;
-            }
+            ResultSet rs;
 
             stmt.executeUpdate("CREATE DATABASE IF NOT EXISTS quiz");
+            stmt.executeUpdate("USE quiz");
             stmt.close();
-            con.close();
-
-            con = DriverManager.getConnection(databaseString + "/quiz", "root", "winintin123456789");
 
             Statement tableStmt = Quiz.con.createStatement();
             tableStmt.executeUpdate("CREATE TABLE IF NOT EXISTS initializeDatabase (" +
@@ -102,7 +97,8 @@ public class Quiz {
                         """
         );
 
-        try (con) {
+        try {
+            con = DriverManager.getConnection(databaseString + "/quiz", "root", "winintin123456789");
             Statement s = con.createStatement();
 
             ResultSet rs = s.executeQuery("SELECT `option`, value FROM info");
