@@ -5,8 +5,8 @@ import java.io.*;
 import java.util.*;
 
 public class Quiz {
-    static Connection con = DriverManager.getConnection(databaseString + "/?user=root&password=winintin123456789");
     static final String databaseString = "jdbc:mysql://172.16.242.59:3306";
+    static Connection con = DriverManager.getConnection(databaseString + "/?user=root&password=winintin123456789");
 
     public static void main(String[] args) throws SQLException {
         db();
