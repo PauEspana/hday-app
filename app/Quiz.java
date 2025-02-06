@@ -22,8 +22,7 @@ public class Quiz {
             Statement s = con.createStatement();
             rs = s.executeQuery("SELECT * FROM initializeDatabase");
 
-            if (rs.next() && rs.getInt("initialized") == 0) {
-                initializeDatabase();
+            if (rs.next() && rs.getInt("initialized") == 1) {
                 return;
             }
         } catch (SQLException e) {
@@ -53,6 +52,7 @@ public class Quiz {
             }
 
             tableStmt.close();
+            initializeDatabase();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
