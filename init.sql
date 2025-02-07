@@ -1,22 +1,52 @@
--- Us de la base de dades
 USE quiz;
 
 drop table if exists info;
 drop table if exists results;
 drop table if exists questions;
-
---
--- Table structure for table `info`
---
+drop table if exists programingAnswers;
 
 CREATE TABLE `info` (
   `option` varchar(11) NOT NULL,
   `value` varchar(10000) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
---
--- Dumping data for table `info`
---
+CREATE TABLE `questions` (
+  `id` int NOT NULL,
+  `question` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `answer` varchar(2000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `results` (
+  `id` int NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `solved` int NOT NULL,
+  `timestamp` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+create table programingAnswers
+(
+    id int not null primary key,
+    answer int not null
+);
+
+ALTER TABLE `info`
+  ADD PRIMARY KEY (`option`);
+
+ALTER TABLE `questions`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `results`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `solved` (`solved`);
+
+ALTER TABLE `questions`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+ALTER TABLE `results`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+ALTER TABLE `results`
+  ADD CONSTRAINT `results_ibfk_1` FOREIGN KEY (`solved`) REFERENCES `questions` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 INSERT INTO `info` (`option`, `value`) VALUES
 ('ciutat', 'Banyoles'),
@@ -28,22 +58,6 @@ La veu torna a aparèixer, exigint que has de ser aïllat de tot el mal present 
 Tot i això, la veu divina intervé una vegada més, felicitant la teva mare per complir la voluntat de Déu, però encara dubtant de la seva fe. Com a prova inapel·lable, li demana el teu sacrifici. Sense qüestionar-se les paraules del missatger, es dirigeix a la cuina a agafar un ganivet, i seguidament pren rumb cap a la teva habitació. \n
 Tu, que has vist tota la seqüència a través de l''escletxa de la porta, entres en pànic i comences a buscar desesperadament la trapa sota la catifa que du al soterrani. Apuradament, hi saltes a dins per escapar de la teva mare, que ha estat consumida pels seus deliris.
 ');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `questions`
---
-
-CREATE TABLE `questions` (
-  `id` int NOT NULL,
-  `question` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `answer` varchar(2000) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Dumping data for table `questions`
---
 
 INSERT INTO `questions` (`id`, `question`, `answer`) VALUES
 (1, 'Introdueix el nom del item obtingut', 'The Missing Poster'),
@@ -57,59 +71,10 @@ Introdueix el nom del item obtingut a aquesta prova
 (3, 'Introdueix el nom del item obtingut', 'Sharp Plug'),
 (4, 'Introdueix el nom del item obtingut', 'The GameKid'),
 (5, 'Introdueix el nom del item obtingut', 'PHD');
--- --------------------------------------------------------
 
---
--- Table structure for table `results`
---
-
-CREATE TABLE `results` (
-  `id` int NOT NULL,
-  `username` varchar(255) NOT NULL,
-  `solved` int NOT NULL,
-  `timestamp` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
-
---
--- Indexes for table `info`
---
-ALTER TABLE `info`
-  ADD PRIMARY KEY (`option`);
-
---
--- Indexes for table `questions`
---
-ALTER TABLE `questions`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `results`
---
-ALTER TABLE `results`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `solved` (`solved`);
-
-
---
--- AUTO_INCREMENT for table `questions`
---
-ALTER TABLE `questions`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
--- AUTO_INCREMENT for table `results`
---
-ALTER TABLE `results`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
-
---
--- Constraints for table `results`
---
-ALTER TABLE `results`
-  ADD CONSTRAINT `results_ibfk_1` FOREIGN KEY (`solved`) REFERENCES `questions` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+INSERT INTO quiz.programingAnswers values
+(1, 549);
+INSERT INTO quiz.programingAnswers values
+(2, 774);
 
 UPDATE `initializeDatabase` SET `initialized` = 1;
-
-COMMIT;
