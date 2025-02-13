@@ -65,13 +65,13 @@ Desubicat, et trobes envoltat de monstres grotescos que volen acabar amb tu. El 
 En qualsevol cas, has de fer tot el possible per seguir descendint en aquell indret. \n
 Connectat a aquest mateix servidor amb l''usuari ''isaac'' i contrasenya ''isaac'' i troba un arxiu anomenat ''Delirium''.
 Introdueix el nom del item obtingut:',
-'The Missing Poster'),
+'Broken Modem'),
 (
 2, '
 En descendir al pròxim nivell, les parets del llarg passadís en què et trobes tenen escrites de manera tètrica les instruccions del següent repte. \n
 Per obtenir una pista que et pot dur cap a la teva escapatòria, has d''entrar en un client d''Isard amb l''adreça IP pertinent. Un cop dins, has de trobar una impressora amb el nom "TheServerOfIsaac" i accedir a la seva cua d''impressió. Allà hi trobaràs el document amb la informació que pot evitar el teu macabre destí.
 Introdueix el nom del item obtingut:
-', 'GB Bug'
+', 'Missing No.'
 ),
 (3, '
 Introdueix el nom del item obtingut:
