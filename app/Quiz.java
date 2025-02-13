@@ -26,7 +26,7 @@ public class Quiz {
                 return;
             }
         } catch (SQLException e) {
-            System.out.println("Database not found, generation it.");
+            System.out.print("");
         }
 
         try {
