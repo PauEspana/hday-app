@@ -5,7 +5,11 @@ import java.io.*;
 import java.util.*;
 
 public class Quiz {
-    static final String databaseString = "jdbc:mysql://172.16.242.59:3306";
+
+    static final String DATABASE_STRING = "jdbc:mysql://172.16.242.59:3306";
+    static final String DATABASE_USER = "root";
+    static final String DATABASE_PASSWORD = "winintin123456789";
+
     static Connection con;
 
     public static void main(String[] args) throws SQLException {
@@ -14,23 +18,20 @@ public class Quiz {
     }
 
     private static void db() {
-
-        ResultSet rs;
-
-        try {
-            con = DriverManager.getConnection(databaseString + "/quiz", "root", "winintin123456789");
-            Statement s = con.createStatement();
-            rs = s.executeQuery("SELECT * FROM initializeDatabase");
-
+        try (
+             Connection con = DriverManager.getConnection(DATABASE_STRING + "/quiz", DATABASE_USER, DATABASE_PASSWORD);
+             Statement stmt = con.createStatement();
+             ResultSet rs = stmt.executeQuery("SELECT initialized FROM initializeDatabase")
+        ) {
             if (rs.next() && rs.getInt("initialized") == 1) {
                 return;
             }
         } catch (SQLException e) {
-            System.out.print("");
+            System.out.println("DATABASE NOT INITIALIZED, INITIALIZING...");
         }
 
         try {
-            con = DriverManager.getConnection(databaseString, "root", "winintin123456789");
+            con = DriverManager.getConnection(DATABASE_STRING, DATABASE_USER, DATABASE_PASSWORD);
             Statement stmt = con.createStatement();
 
             stmt.executeUpdate("CREATE DATABASE IF NOT EXISTS quiz");
@@ -43,7 +44,7 @@ public class Quiz {
                     "id INT PRIMARY KEY AUTO_INCREMENT, " +
                     "initialized INT NOT NULL)");
 
-            rs = tableStmt.executeQuery("SELECT COUNT(*) FROM initializeDatabase");
+            ResultSet rs = tableStmt.executeQuery("SELECT COUNT(*) FROM initializeDatabase");
             rs.next();
             int rowCount = rs.getInt(1);
 
@@ -76,7 +77,6 @@ public class Quiz {
             scanner.close();
             stmt.close();
             System.out.println("Database initialized from " + filePath);
-
         } catch (FileNotFoundException e) {
             System.err.println("SQL file not found: " + filePath);
         } catch (SQLException e) {
@@ -105,7 +105,7 @@ public class Quiz {
         );
 
         try {
-            con = DriverManager.getConnection(databaseString + "/quiz", "root", "winintin123456789");
+            con = DriverManager.getConnection(DATABASE_STRING + "/quiz", DATABASE_USER, DATABASE_PASSWORD);
             Statement s = con.createStatement();
 
             ResultSet rs = s.executeQuery("SELECT `option`, value FROM info");

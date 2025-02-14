@@ -68,15 +68,20 @@ Introdueix el nom del item obtingut:',
 'Broken Modem'),
 (
 2, '
+Has aconseguit superar la primera prova, i amb l''ajuda de l''objecte que se t''ha atorgat has obtingut accés a un usuari de windows, el nom és Isaac, pero la contrasenya sembla estar xifrada, seràs capaç de desxifrar-la? (AVÍS: La contrasenya no contè espais)
+idBrokenModem + 144 141 165 163 + 1100100 1100101 110010 110000 100001
+
 En descendir al pròxim nivell, les parets del llarg passadís en què et trobes tenen escrites de manera tètrica les instruccions del següent repte. \n
-Per obtenir una pista que et pot dur cap a la teva escapatòria, has d''entrar en un client d''Isard amb l''adreça IP pertinent. Un cop dins, has de trobar una impressora amb el nom "TheServerOfIsaac" i accedir a la seva cua d''impressió. Allà hi trobaràs el document amb la informació que pot evitar el teu macabre destí.
+Per obtenir una pista que et pot dur cap a la teva escapatòria, has d''entrar en un client d''Isard i configurar la seva IP correctament, un cop fet això, connectat al recurs compartit per xarxa, i allà trobaràs la teva següent pista.
 Introdueix el nom del item obtingut:
 ', 'Missing No.'
 ),
 (3, '
+Mitjançant comandes, dirigeix-te a /etc/programacio/ amb l''usuari ''isaac'' i un cop allà segueix les instruccions trobades allà.
 Introdueix el nom del item obtingut:
 ', 'Sharp Plug'),
 (4, '
+
 Introdueix el nom del item obtingut:
 ', 'The GameKid'),
 (5, '
