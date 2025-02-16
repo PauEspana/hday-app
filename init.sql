@@ -1,3 +1,5 @@
+-- noinspection SqlNoDataSourceInspectionForFile
+
 USE quiz;
 
 drop table if exists info;
@@ -12,7 +14,7 @@ CREATE TABLE `info` (
 
 CREATE TABLE `questions` (
   `id` int NOT NULL,
-  `question` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `question` TEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `answer` varchar(2000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -50,7 +52,13 @@ ALTER TABLE `results`
 
 INSERT INTO `info` (`option`, `value`) VALUES
 ('ciutat', 'Banyoles'),
-('despedida', ''),
+('despedida', '
+Ho has aconseguit. Has vençut i has aconseguit el PHD, que demostra la teva valentia i resiliència, i el que t''obre les portes de la sortida.
+O encara no.
+Darrere teu, sents unes passes. Et gires i veus la teva mare, amb un gran ganivet, apropant-se a una velocitat vertiginosa. Saps que això no és un videojoc, i que no tens res a fer contra ella. Intentes córrer, sense mirar enrere, per perdre-la de vista, però no serveix de res. Abans de poder processar el que acaba de passar, ja la tens a tocar. No tens escapatòria, i de mica en mica, cada cop t''arracona més contra els murs del maleït soterrani. Però de cop i volta, com si es tractés d''una intervenció divina, els teus ulls albiren l''esperança. D''una de les estanteries podrides, cau una Bíblia, en un cop sec, sobre el cap de la teva mare. Ella cau desplomada. L''Isaac, contra tot pronòstic, ha sortit triomfant.
+Malgrat això, està passant alguna cosa. El teu cap dona voltes, i les llàgrimes que et cauen per les galtes no s''assequen. La teva visió es torna borrosa, i la imatge que projecten els teus ulls canvia completament. Aquest desenllaç només havia estat una de les històries que havies escrit sol, a la teva habitació, quan estaves perdut en pensaments negatius. La teva memòria estava evocant records dels teus desitjos més profunds.
+Aquests miratges s''esvaeixen, i deixen darrere seu la realitat que tant vols eludir. La porta s''obre estrepitosament amb un cop de peu. Entreveus la figura de la teva mare, sorgint progressivament d''entre la penombra, amb el ganivet alçat entre les seves mans.
+'),
 ('introduccio', '
 Ets l''Isaac, un nen que viu en una casa petita amb la seva mare. El teu pare us va abandonar, i tu trobes refugi dibuixant i jugant amb les teves joguines. Mentrestant, la teva mare es comença a obsessionar ràpidament per la Bíblia, passant-se el dia mirant programes cristians a la televisió.
 De cop i volta, la teva mare comença a sentir una veu divina, que li diu que el seu fill està corromput pel pecat. Per aconseguir la teva salvació, et treu totes les joguines, els dibuixos, la consola i fins i tot la teva roba.
@@ -63,30 +71,33 @@ INSERT INTO `questions` (`id`, `question`, `answer`) VALUES
 (1, '
 Desubicat, et trobes envoltat de monstres grotescos que volen acabar amb tu. El soterrani, dividit en plantes, és el reflex de la teva complicada infància i els teus traumes: el rebuig per part de la teva mare, l''assetjament escolar, l''abandonament del teu pare i l''odi que sents per tu mateix. En aquesta situació, no saps quines memòries són reals o no, ni tampoc si és un somni o si tan sols estàs viu.
 En qualsevol cas, has de fer tot el possible per seguir descendint en aquell indret. \n
-Connectat a aquest mateix servidor amb l''usuari ''isaac'' i contrasenya ''isaac'' i troba un arxiu anomenat ''Delirium''.
+Al cap d''una estona esprintant, amb prou feines capaç d''esquivar les bèsties, i perdent-te entre laberíntics murs humits, et topes amb un ordinador obsolet, amb una pantalla empolsegada i pampalluguejant, encès en un racó.
+Enganxat a la pantalla, hi trobes un paperet descolorit amb les instruccions d''entrar en un servidor de PuTTY amb l''usuari "isaac", de contrasenya homònima. Has de trobar un arxiu anomenat ''Delirium'' i inspeccionar el seu contingut.
 Introdueix el nom del item obtingut:',
 'Broken Modem'),
 (
 2, '
-Has aconseguit superar la primera prova, i amb l''ajuda de l''objecte que se t''ha atorgat has obtingut accés a un usuari de windows, el nom és Isaac, pero la contrasenya sembla estar xifrada, seràs capaç de desxifrar-la? (AVÍS: La contrasenya no contè espais)
+Has aconseguit superar la primera prova, i amb l''ajuda de l''objecte que se t''ha atorgat has obtingut accés a un usuari de Windows. El nom d''usuari és Isaac, però la contrasenya sembla estar xifrada en el següent codi:
 idBrokenModem + 144 141 165 163 + 1100100 1100101 110010 110000 100001
-
-En descendir al pròxim nivell, les parets del llarg passadís en què et trobes tenen escrites de manera tètrica les instruccions del següent repte. \n
-Per obtenir una pista que et pot dur cap a la teva escapatòria, has d''entrar en un client d''Isard i configurar la seva IP correctament, un cop fet això, connectat al recurs compartit per xarxa, i allà trobaràs la teva següent pista.
-Introdueix el nom del item obtingut:
-', 'Missing No.'
+En descendir al pròxim nivell, les parets del llarg passadís en què et trobes tenen escrites de manera tètrica les instruccions del següent repte.
+Per obtenir una pista que et pot dur cap a la teva escapatòria, has d''entrar en un client d''Isard amb la contrasenya obtinguda i configurar la seva IP correctament, un cop fet això, entra al recurs compartit per xarxa (\\\\SERVER\\Users\\Administrador\\Documents\\Isaac). Allà hi trobaràs la teva següent pista.
+Introdueix el nom de l''item obtingut:'
+, 'Missing No.'
 ),
 (3, '
-Mitjançant comandes, dirigeix-te a /etc/programacio/ amb l''usuari ''isaac'' i un cop allà segueix les instruccions trobades allà.
-Introdueix el nom del item obtingut:
-', 'Sharp Plug'),
+Guiat pel paper que acabes de trobar, ja saps a quina prova t''has d''enfrontar.
+Introdueix el nom de l''item obtingut:'
+, 'Sharp Plug'),
 (4, '
-
-Introdueix el nom del item obtingut:
-', 'The GameKid'),
+Sembla que qui fos que t''hagués deixat les indicacions, tenia raó.
+Tens un breu instant d''alegria, que s''esvaeix tan bon punt t''adones que estàs completament perdut. No saps què fer. Comences a intentar recordar tota la informació que has recaptat des del moment en què has caigut en aquest forat.
+Durant un instant, se t''il·lumina el camí davant dels teus ulls. Una de les pistes que havies aconseguit menciona la utilitat de The Server of Isaac Wiki, a la que ja has accedit. Allà hi deu haver una forma de trobar un nou objecte. Hi ha alguna cosa que se t''escapa. Hauries de fer un cop d''ull al codi font de la pàgina, potser hi ha un missatge ocult amb l''item que busques...
+Introdueix el nom de l''item obtingut:'
+, 'The Gamekid'),
 (5, '
-Has arribat a l''última prova! Aquí hauràs de mostrar el teu nivell d''habilitat, inicia el joc i guanya al boss final!
-Introdueix el nom del item obtingut:', 'PHD');
+Després d''aconseguir aquest objecte, ja gairebé pots veure l''escapatòria d''aquest profund soterrani. Només has d''obrir el joc que trobaràs a l''escriptori i aconseguir passar-te''l. El joc és una simulació d''aquest mateix soterrani, on tenen lloc uns combats contra monstres i, finalment, la teva mare. Venç per aconseguir l''objecte final, el que et traurà d''aquest malson.
+Introdueix el nom de l''item obtingut:'
+, 'PHD');
 
 INSERT INTO quiz.programingAnswers values
 (1, 549);

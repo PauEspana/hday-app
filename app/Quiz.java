@@ -6,7 +6,7 @@ import java.util.*;
 
 public class Quiz {
 
-    static final String DATABASE_STRING = "jdbc:mysql://172.16.242.59:3306";
+    static final String DATABASE_STRING = "jdbc:mysql://localhost:3306";
     static final String DATABASE_USER = "root";
     static final String DATABASE_PASSWORD = "winintin123456789";
 
@@ -152,9 +152,8 @@ public class Quiz {
             }
 
             if (played) {
-                System.out.println("Enhorabona, ja has acabat totes les proves!");
-                System.out.println();
                 System.out.println(options.get("despedida"));
+                System.out.println("Ha acabat el joc.");
             } else {
                 System.out.println("No hi ha cap prova disponible");
             }
