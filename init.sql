@@ -73,30 +73,30 @@ Desubicat, et trobes envoltat de monstres grotescos que volen acabar amb tu. El 
 En qualsevol cas, has de fer tot el possible per seguir descendint en aquell indret. \n
 Al cap d''una estona esprintant, amb prou feines capaç d''esquivar les bèsties, i perdent-te entre laberíntics murs humits, et topes amb un ordinador obsolet, amb una pantalla empolsegada i pampalluguejant, encès en un racó.
 Enganxat a la pantalla, hi trobes un paperet descolorit amb les instruccions d''entrar en un servidor de PuTTY amb l''usuari "isaac", de contrasenya homònima. Has de trobar un arxiu anomenat ''Delirium'' i inspeccionar el seu contingut.
-Introdueix el nom del item obtingut:',
+\nIntrodueix el nom del item obtingut:',
 'Broken Modem'),
 (
-2, '
+2, '\n
 Has aconseguit superar la primera prova, i amb l''ajuda de l''objecte que se t''ha atorgat has obtingut accés a un usuari de Windows. El nom d''usuari és Isaac, però la contrasenya sembla estar xifrada en el següent codi:
 idBrokenModem + 144 141 165 163 + 1100100 1100101 110010 110000 100001
 En descendir al pròxim nivell, les parets del llarg passadís en què et trobes tenen escrites de manera tètrica les instruccions del següent repte.
 Per obtenir una pista que et pot dur cap a la teva escapatòria, has d''entrar en un client d''Isard amb la contrasenya obtinguda i configurar la seva IP correctament, un cop fet això, entra al recurs compartit per xarxa (\\\\SERVER\\Users\\Administrador\\Documents\\Isaac). Allà hi trobaràs la teva següent pista.
-Introdueix el nom de l''item obtingut:'
+\nIntrodueix el nom de l''item obtingut:'
 , 'Missing No.'
 ),
-(3, '
+(3, '\n
 Guiat pel paper que acabes de trobar, ja saps a quina prova t''has d''enfrontar.
-Introdueix el nom de l''item obtingut:'
+\nIntrodueix el nom de l''item obtingut:'
 , 'Sharp Plug'),
-(4, '
+(4, '\n
 Sembla que qui fos que t''hagués deixat les indicacions, tenia raó.
 Tens un breu instant d''alegria, que s''esvaeix tan bon punt t''adones que estàs completament perdut. No saps què fer. Comences a intentar recordar tota la informació que has recaptat des del moment en què has caigut en aquest forat.
 Durant un instant, se t''il·lumina el camí davant dels teus ulls. Una de les pistes que havies aconseguit menciona la utilitat de The Server of Isaac Wiki, a la que ja has accedit. Allà hi deu haver una forma de trobar un nou objecte. Hi ha alguna cosa que se t''escapa. Hauries de fer un cop d''ull al codi font de la pàgina, potser hi ha un missatge ocult amb l''item que busques...
-Introdueix el nom de l''item obtingut:'
+\nIntrodueix el nom de l''item obtingut:'
 , 'The Gamekid'),
-(5, '
+(5, '\n
 Després d''aconseguir aquest objecte, ja gairebé pots veure l''escapatòria d''aquest profund soterrani. Només has d''obrir el joc que trobaràs a l''escriptori i aconseguir passar-te''l. El joc és una simulació d''aquest mateix soterrani, on tenen lloc uns combats contra monstres i, finalment, la teva mare. Venç per aconseguir l''objecte final, el que et traurà d''aquest malson.
-Introdueix el nom de l''item obtingut:'
+\nIntrodueix el nom de l''item obtingut:'
 , 'PHD');
 
 INSERT INTO quiz.programingAnswers values
