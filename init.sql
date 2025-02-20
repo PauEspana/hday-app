@@ -77,10 +77,11 @@ Enganxat a la pantalla, hi trobes un paperet descolorit amb les instruccions d''
 'Broken Modem'),
 (
 2, '\n
-Has aconseguit superar la primera prova, i amb l''ajuda de l''objecte que se t''ha atorgat has obtingut accés a un usuari de Windows. El nom d''usuari és Isaac, però la contrasenya sembla estar xifrada en el següent codi:
+Has aconseguit superar la primera prova, i amb l''ajuda de l''objecte que se t''ha atorgat has obtingut accés a un usuari d''Active Directory. El nom d''usuari és Isaac, però la contrasenya sembla estar xifrada en el següent codi;
 idBrokenModem + 144 141 165 163 + 1100100 1100101 110010 110000 100001
+
 En descendir al pròxim nivell, les parets del llarg passadís en què et trobes tenen escrites de manera tètrica les instruccions del següent repte.
-Per obtenir una pista que et pot dur cap a la teva escapatòria, has d''entrar en un client d''Isard amb la contrasenya obtinguda i configurar la seva IP correctament, un cop fet això, entra al recurs compartit per xarxa (\\\\SERVER\\Users\\Administrador\\Documents\\Isaac). Allà hi trobaràs la teva següent pista.
+Per obtenir una pista que et pot dur cap a la teva escapatòria, has d''entrar en un client d''Isard amb la contrasenya obtinguda i configurar la seva IP correctament (dins el rang 10.0.60.X), un cop fet això, entra al recurs compartit per xarxa (\\SERVER\Users\Administrador\Documents\Isaac). Allà hi trobaràs la teva següent pista.
 \nIntrodueix el nom de l''item obtingut:'
 , 'Missing No.'
 ),
