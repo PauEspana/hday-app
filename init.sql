@@ -72,14 +72,15 @@ INSERT INTO `questions` (`id`, `question`, `answer`) VALUES
 Desubicat, et trobes envoltat de monstres grotescos que volen acabar amb tu. El soterrani, dividit en plantes, és el reflex de la teva complicada infància i els teus traumes: el rebuig per part de la teva mare, l''assetjament escolar, l''abandonament del teu pare i l''odi que sents per tu mateix. En aquesta situació, no saps quines memòries són reals o no, ni tampoc si és un somni o si tan sols estàs viu.
 En qualsevol cas, has de fer tot el possible per seguir descendint en aquell indret. \n
 Al cap d''una estona esprintant, amb prou feines capaç d''esquivar les bèsties, i perdent-te entre laberíntics murs humits, et topes amb un ordinador obsolet, amb una pantalla empolsegada i pampalluguejant, encès en un racó.
-Enganxat a la pantalla, hi trobes un paperet descolorit amb les instruccions d''entrar en un servidor de PuTTY amb l''usuari "isaac", de contrasenya homònima. Has de trobar un arxiu anomenat ''Delirium'' i inspeccionar el seu contingut.
+Enganxat a la pantalla, hi trobes un paperet descolorit amb les instruccions d''entrar en un servidor amb PuTTY (OBRE UN ALTRE PUTTY) amb l''usuari "isaac", de contrasenya homònima. Has de trobar un arxiu anomenat ''Delirium'' i inspeccionar el seu contingut.
 \nIntrodueix el nom del item obtingut:',
 'Broken Modem'),
 (
 2, '\n
-Has aconseguit superar la primera prova, i amb l''ajuda de l''objecte que se t''ha atorgat has obtingut accés a un usuari de Windows. El nom d''usuari és Isaac, però la contrasenya sembla estar xifrada en el següent codi;
-idBrokenModem + 144 141 165 163 + 1100100 1100101 110010 110000 100001
-
+Has aconseguit superar la primera prova, i amb l''ajuda de l''objecte que se t''ha atorgat has obtingut accés a un usuari de Windows. El nom d''usuari és Isaac, però sembla que algunes parts de la contrasenya està xifrades;
+idBrokenModem (Aquesta part la pots trobar a la pàgina web) + 144 141 165 163 + de20!
+Totes les parts s''han de convertir a text no a numèric.
+\n
 En descendir al pròxim nivell, les parets del llarg passadís en què et trobes tenen escrites de manera tètrica les instruccions del següent repte.
 Per obtenir una pista que et pot dur cap a la teva escapatòria, has d''entrar en un client d''Isard amb la contrasenya obtinguda. Un cop fet això, entra al recurs compartit per xarxa (\\SERVER\Users\Administrador\Documents\Isaac). Allà hi trobaràs la teva següent pista.
 \nIntrodueix el nom de l''item obtingut:'
@@ -87,6 +88,7 @@ Per obtenir una pista que et pot dur cap a la teva escapatòria, has d''entrar e
 ),
 (3, '\n
 Guiat pel paper que acabes de trobar, ja saps a quina prova t''has d''enfrontar.
+Un cop hagis arribat a la carpeta indicada, mira el fitxer TODO.list i arregla els programes indicats.
 \nIntrodueix el nom de l''item obtingut:'
 , 'Sharp Plug'),
 (4, '\n

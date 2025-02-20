@@ -145,9 +145,9 @@ public class Quiz {
                     System.out.println("Resposta correcta");
                     s.executeUpdate("INSERT INTO results (username, solved) VALUES ('" + username + "', " + p.id + ")");
                 } else {
-                    System.out.println("Resposta incorrecta");
                     System.out.print("\033[H\033[2J");
                     System.console().flush();
+                    System.out.println("Resposta incorrecta");
                     i--;
                 }
             }
