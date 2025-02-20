@@ -6,7 +6,7 @@ import java.util.*;
 
 public class Quiz {
 
-    static final String DATABASE_STRING = "jdbc:mysql://localhost:3306";
+    static final String DATABASE_STRING = "jdbc:mysql://172.16.242.59:3306";
     static final String DATABASE_USER = "root";
     static final String DATABASE_PASSWORD = "winintin123456789";
 
@@ -128,7 +128,6 @@ public class Quiz {
 
             rs = s.executeQuery("SELECT id, question, answer FROM questions WHERE id > " + start + " ORDER BY id");
             while (rs.next()) {
-
                 int questionId = rs.getInt("id");
                 String question = rs.getString("question");
                 String answer = rs.getString("answer");
@@ -147,6 +146,8 @@ public class Quiz {
                     s.executeUpdate("INSERT INTO results (username, solved) VALUES ('" + username + "', " + p.id + ")");
                 } else {
                     System.out.println("Resposta incorrecta");
+                    System.out.print("\033[H\033[2J");
+                    System.console().flush();
                     i--;
                 }
             }
