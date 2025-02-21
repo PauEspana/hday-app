@@ -82,7 +82,7 @@ idBrokenModem (Aquesta part la pots trobar a la pàgina web) + 144 141 165 163 +
 Totes les parts s''han de convertir a text no a numèric.
 \n
 En descendir al pròxim nivell, les parets del llarg passadís en què et trobes tenen escrites de manera tètrica les instruccions del següent repte.
-Per obtenir una pista que et pot dur cap a la teva escapatòria, has d''entrar en un client d''Isard amb la contrasenya obtinguda. Un cop fet això, entra al recurs compartit per xarxa (\\SERVER\Users\Administrador\Documents\Isaac). Allà hi trobaràs la teva següent pista.
+Per obtenir una pista que et pot dur cap a la teva escapatòria, has d''entrar en un desplegament d''Isard (HDAY-w10-client-winintin) amb la contrasenya obtinguda. Un cop fet això, entra al recurs compartit per xarxa (\\SERVER\Users\Administrador\Documents\Isaac). Allà hi trobaràs la teva següent pista.
 \nIntrodueix el nom de l''item obtingut:'
 , 'Missing No.'
 ),
