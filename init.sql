@@ -77,7 +77,7 @@ Enganxat a la pantalla, hi trobes un paperet descolorit amb les instruccions d''
 'Broken Modem'),
 (
 2, '\n
-Has aconseguit superar la primera prova, i amb l''ajuda de l''objecte que se t''ha atorgat has obtingut accés a un usuari de Windows. El nom d''usuari és Isaac, però sembla que algunes parts de la contrasenya està xifrades;
+Has aconseguit superar la primera prova, i amb l''ajuda de l''objecte que se t''ha atorgat has obtingut accés a un usuari de Windows. El nom d''usuari és Isaac, però sembla que algunes parts de la contrasenya està xifrades.
 idBrokenModem (Aquesta part la pots trobar a la pàgina web) + 144 141 165 163 + de20!
 Totes les parts s''han de convertir a text no a numèric.
 \n
